@@ -15,10 +15,10 @@ namespace SACHONLINE.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class SachOnlineEntities : DbContext
+    public partial class SachOnline : DbContext
     {
-        public SachOnlineEntities()
-            : base("name=SachOnlineEntities")
+        public SachOnline()
+            : base("name=SachOnline")
         {
         }
     
