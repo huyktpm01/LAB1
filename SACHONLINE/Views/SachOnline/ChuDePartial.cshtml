@@ -1,15 +1,10 @@
 ﻿@model IEnumerable<SACHONLINE.Models.CHUDE>
-@{
-    ViewBag.Title = "ChuDePartial";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
-}
-
 <ul class="list-group">
     <li class="list-group-item active" style="font-weight:bold; text-align:center">SÁCH THEO CHỦ ĐỀ</li>
     @foreach (var item in Model)
     {
         <a href="@Url.Action("SachTheoChuDe","SachOnline", new { id = item.MaCD})" class="list-group-item">@item.TenChuDe</a>
+
     }
 </ul>
-
 

@@ -32,15 +32,15 @@ namespace SachOnline.Controllers
             var listChuDe = from cd in data.CHUDEs select cd;
             return PartialView(listChuDe);
         }
-        public ActionResult PartialView()
+        public ActionResult NXBPartial()
         {
             var listNhaXuatBan = from cd in data.NHAXUATBANs select cd;
             return PartialView(listNhaXuatBan);
         }
         public ActionResult SachBanNhieuPartial()
         {
-            var listSachBanNhieu = from cd in data.CHITIETDATHANGs select cd;
-            return View(listSachBanNhieu);
+            var listSachMoi = LaySachMoi(6);
+            return PartialView(listSachMoi);
         }
     }
 }

@@ -240,6 +240,8 @@
     <Content Include="Views\SachOnline\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\SachOnline\ChuDePartial.cshtml" />
+    <Content Include="Views\SachOnline\NXBPartial.cshtml" />
+    <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
