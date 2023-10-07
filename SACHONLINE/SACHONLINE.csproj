@@ -244,13 +244,6 @@
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
-=======
-    <Content Include="Views\Shared\_LayoutTC.cshtml" />
->>>>>>> parent of c402aa9 (10/7)
-=======
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\Shared\_LayoutTC1.cshtml" />
@@ -259,21 +252,8 @@
 =======
     <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
 >>>>>>> 045ef620627d45d08d3c6994e363f3184b0dca8a
-<<<<<<< HEAD
 =======
 >>>>>>> parent of 6bba8d6 (7/10/2003-10)
-=======
->>>>>>> bbc9f15ac13a9dfb5e8a1bf6628e5bfbe35e851d
->>>>>>> f253958711ee1456463c493545947e67842eeba1
-=======
-    <Content Include="Views\Shared\_LayoutTC.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
-=======
-    <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
-    <Content Include="Views\Shared\_LayoutTC1.cshtml" />
->>>>>>> c402aa919dc94451cea631101a0bd099c4cea0a7
->>>>>>> parent of 2e6f7b6 (Revert "A")
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
