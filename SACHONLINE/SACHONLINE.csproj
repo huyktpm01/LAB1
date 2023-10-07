@@ -246,6 +246,7 @@
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\Shared\_LayoutTC1.cshtml" />
+    <Content Include="Views\SachOnline\DangKy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
