@@ -247,10 +247,13 @@
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\Shared\_LayoutTC1.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\SachOnline\DangKy.cshtml" />
 =======
     <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
 >>>>>>> 045ef620627d45d08d3c6994e363f3184b0dca8a
+=======
+>>>>>>> parent of 6bba8d6 (7/10/2003-10)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -54,10 +54,5 @@ namespace SachOnline.Controllers
             var listSachMoi = LaySachMoi(6);
             return PartialView(listSachMoi);
         }
-        [HttpGet]
-        public ActionResult DangKy()
-        {
-            return View();
-        }
     }
 }
