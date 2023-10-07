@@ -59,6 +59,12 @@ namespace SACHONLINE.Models
     partial void DeleteVIETSACH(VIETSACH instance);
     #endregion
 		
+		public dbSachOnlineDataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["SachOnlineConnectionString1"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
+		
 		public dbSachOnlineDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
