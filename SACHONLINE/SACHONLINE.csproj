@@ -245,6 +245,7 @@
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\SachOnline\DangKy.cshtml" />
+    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

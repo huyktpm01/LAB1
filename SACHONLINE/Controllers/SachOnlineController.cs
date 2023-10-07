@@ -27,6 +27,16 @@ namespace SachOnline.Controllers
             var listSachMoi = LaySachMoi(6);
             return View(listSachMoi);
         }
+        public ActionResult ChiTietSach(int id)
+
+        {
+
+            var sach = from s in data.SACHes
+
+                       where s.MaSach == id
+                       select s;
+            return View(sach.Single());
+        }
         public ActionResult SachTheoChuDe(int id)
         {
             
