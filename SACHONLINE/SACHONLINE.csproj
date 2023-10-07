@@ -244,7 +244,12 @@
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
+=======
+    <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
+    <Content Include="Views\Shared\_LayoutTC1.cshtml" />
+>>>>>>> c402aa919dc94451cea631101a0bd099c4cea0a7
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
