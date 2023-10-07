@@ -27,6 +27,12 @@ namespace SachOnline.Controllers
             var listSachMoi = LaySachMoi(6);
             return View(listSachMoi);
         }
+        public ActionResult SachTheoChuDe(int id)
+        {
+            //Lay 6 quyen sach moi
+            var sach = from s in data.SACHes where s.MaCD == id select s;
+            return View(sach);
+        }
         public ActionResult ChuDePartial()
         {
             var listChuDe = from cd in data.CHUDEs select cd;

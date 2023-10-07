@@ -242,6 +242,7 @@
     <Content Include="Views\SachOnline\ChuDePartial.cshtml" />
     <Content Include="Views\SachOnline\NXBPartial.cshtml" />
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
+    <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
