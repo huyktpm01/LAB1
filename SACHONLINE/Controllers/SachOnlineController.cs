@@ -10,7 +10,7 @@ namespace SachOnline.Controllers
     {
         //Tao 1 doi tuong chua toan bo CSDL tu bdSachOnline
 
-        dbSachOnlineDataContext data = new dbSachOnlineDataContext("Data Source=LAPTOP-CỦA-L\\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True");
+        dbSachOnlineDataContext data = new dbSachOnlineDataContext("Data Source=LAPTOP-4PHTMN7E;Initial Catalog=SachOnline;Integrated Security=True");
         /// <summary>
         /// LaySachMoi
         /// </summary>
@@ -33,16 +33,16 @@ namespace SachOnline.Controllers
             var sach = from s in data.SACHes where s.MaCD == id select s;
             return View(sach);
         }
+        public ActionResult ChiTietSach(int id)
+        {
+            //Lay 6 quyen sach moi
+            var sach = from s in data.SACHes where s.MaSach == id select s;
+            return View(sach.Single());
+        }
         public ActionResult ChuDePartial()
         {
             var listChuDe = from cd in data.CHUDEs select cd;
             return PartialView(listChuDe);
-        }
-        public ActionResult SachTheoNhaXuatBan(int id)
-        {
-
-            var NXB = from s in data.SACHes where s.MaNXB == id select s;
-            return View(NXB);
         }
         public ActionResult NXBPartial()
         {

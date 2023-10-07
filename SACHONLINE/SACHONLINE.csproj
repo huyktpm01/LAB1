@@ -243,10 +243,14 @@
     <Content Include="Views\SachOnline\NXBPartial.cshtml" />
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\Shared\_LayoutTC1.cshtml" />
     <Content Include="Views\SachOnline\DangKy.cshtml" />
+=======
+    <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
+>>>>>>> 045ef620627d45d08d3c6994e363f3184b0dca8a
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
