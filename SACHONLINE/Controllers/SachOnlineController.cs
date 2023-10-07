@@ -33,6 +33,12 @@ namespace SachOnline.Controllers
             var sach = from s in data.SACHes where s.MaCD == id select s;
             return View(sach);
         }
+        public ActionResult ChiTietSach(int id)
+        {
+            //Lay 6 quyen sach moi
+            var sach = from s in data.SACHes where s.MaSach == id select s;
+            return View(sach.Single());
+        }
         public ActionResult ChuDePartial()
         {
             var listChuDe = from cd in data.CHUDEs select cd;
