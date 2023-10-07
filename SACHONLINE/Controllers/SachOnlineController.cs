@@ -29,7 +29,7 @@ namespace SachOnline.Controllers
         }
         public ActionResult SachTheoChuDe(int id)
         {
-            //Lay 6 quyen sach moi
+            
             var sach = from s in data.SACHes where s.MaCD == id select s;
             return View(sach);
         }

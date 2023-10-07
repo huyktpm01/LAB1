@@ -12,7 +12,7 @@
 
 </head>
 <body>
-   
+
     <nav class="navbar navbar-inverse">
         <!--navbar-fixed-top-->
         <div class="container">
@@ -24,7 +24,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">SÁCH ONLINE</a>
-                <a class="navbar-brand" href="">TRANG CHỦ</a>
+                <a class="navbar-brand" href="/SachOnline/Index">TRANG CHỦ</a>
                 <a class="navbar-brand" href="#">GIỚI THIỆU</a>
                 <a class="navbar-brand" href="#">LIÊN HỆ</a>
             </div>
@@ -50,7 +50,7 @@
                 <button type="submit" class="btn btn-default" style="background-color:white">Tìm</button>
             </form>
         </div>
-       
+
         <!-- /.container-->
     </nav>
 
@@ -65,12 +65,10 @@
                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                      @RenderBody()
                  </div>
-                 @Html.Action("SachBanNhieuPartial", "SachOnline")
-             </div> 
-            <hr> 
+                
+             </div>
+            <hr>
         </div>
-         
-         
         <hr />
         <footer class="container well" style="text-align:center">
 
