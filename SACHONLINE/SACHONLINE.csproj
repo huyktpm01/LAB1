@@ -243,10 +243,12 @@
     <Content Include="Views\SachOnline\NXBPartial.cshtml" />
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
+=======
+>>>>>>> Stashed changes
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
-    <Content Include="Views\Shared\_LayoutTC1.cshtml" />
     <Content Include="Views\SachOnline\DangKy.cshtml" />
 =======
     <Content Include="Views\SachOnline\ChiTietSach.cshtml" />
