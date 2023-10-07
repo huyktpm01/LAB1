@@ -244,8 +244,12 @@
     <Content Include="Views\SachOnline\SachBanNhieuPartial.cshtml" />
     <Content Include="Views\SachOnline\SachTheoChuDe.cshtml" />
     <Content Include="Views\Shared\_LayoutTC.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\SachOnline\SachTheoNhaXuatBan.cshtml" />
     <Content Include="Views\Shared\_LayoutTC1.cshtml" />
+    <Content Include="Views\SachOnline\DangKy.cshtml" />
+=======
+>>>>>>> parent of c402aa9 (10/7)
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
