@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SACHONLINE.Models
+<!DOCTYPE html>
 <html>
 <head>
     <!--https://github.com/huyktpm01/LAB1-->
@@ -39,7 +40,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Giỏ hàng (0)</a>
+                    @Html.Action("CartPartial", "Cart")
                 </li>
             </ul>
             <form class="navbar-form navbar-right" role="search">
@@ -88,7 +89,7 @@
                             <div class="caption">
                                 <h3>Sản phẩm 1</h3>
                                 <p>Mô tả tóm tắt sản phẩm 1</p>
-                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                                <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +99,7 @@
                             <div class="caption">
                                 <h3>Sản phẩm 2</h3>
                                 <p>Mô tả tóm tắt sản phẩm 2</p>
-                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                                <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -108,7 +109,7 @@
                             <div class="caption">
                                 <h3>Sản phẩm 3</h3>
                                 <p>Mô tả tóm tắt sản phẩm 3</p>
-                                <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                                <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                             </div>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
                         <div class="caption">
                             <h3>Sản phẩm 4</h3>
                             <p>Mô tả tóm tắt sản phẩm 4</p>
-                            <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                            <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                         </div>
                     </div>
                 </div>
@@ -129,7 +130,7 @@
                         <div class="caption">
                             <h3>Sản phẩm 5</h3>
                             <p>Mô tả tóm tắt sản phẩm 5</p>
-                            <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                            <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                         </div>
                     </div>
                 </div>
@@ -139,7 +140,7 @@
                         <div class="caption">
                             <h3>Sản phẩm 6</h3>
                             <p>Mô tả tóm tắt sản phẩm 6</p>
-                            <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
+                            <p><a href="@Url.Action("ThemGioHang","GioHang", new {ms = Model.MaSach,url = Request.Url.ToString()})" class="btn btn-primary" role="button"><span class="glyphicon glyphiconshopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
                         </div>
                     </div>
                 </div>
