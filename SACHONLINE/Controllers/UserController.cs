@@ -9,7 +9,7 @@ namespace SACHONLINE.Controllers
 {
     public class UserController : Controller
     {
-        dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP-4PHTMN7E;Initial Catalog=SachOnline;Integrated Security=True");
+        dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP010502\\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True");
         // GET: User
         [HttpGet]
         public ActionResult DangKy()
