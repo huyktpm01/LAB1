@@ -2,6 +2,8 @@
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using PagedList;
 using SACHONLINE.Models;
 
 namespace SachOnline.Controllers
@@ -37,12 +39,15 @@ namespace SachOnline.Controllers
                        select s;
             return View(sach.Single());
         }
-        public ActionResult SachTheoChuDe(int id)
+        public ActionResult SachTheoChuDe(int iMaCD, int? page)
         {
-            
-            var sach = from s in data.SACHes where s.MaCD == id select s;
-            return View(sach);
+            ViewBag.MaCD = iMaCD;
+            int iSize = 3;
+            int iPageNum = (page ?? 1);
+            var sach = from s in data.SACHes where s.MaCD == iMaCD select s;
+            return View(sach.ToPagedList(iPageNum, iSize));
         }
+
         public ActionResult ChuDePartial()
         {
             var listChuDe = from cd in data.CHUDEs select cd;
