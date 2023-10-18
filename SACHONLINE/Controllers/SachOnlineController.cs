@@ -12,7 +12,7 @@ namespace SachOnline.Controllers
     {
         //Tao 1 doi tuong chua toan bo CSDL tu bdSachOnline
 
-        dbSachOnlineDataContext data = new dbSachOnlineDataContext("Data Source=LAPTOP-4PHTMN7E;Initial Catalog=SachOnline;Integrated Security=True");
+        dbSachOnlineDataContext data = new dbSachOnlineDataContext("Data Source=LAPTOP010502\\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True");
         /// <summary>
         /// LaySachMoi
         /// </summary>
