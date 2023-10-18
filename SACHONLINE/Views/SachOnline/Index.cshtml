@@ -1,4 +1,6 @@
-﻿@model IEnumerable<SACHONLINE.Models.SACH>
+﻿@using SACHONLINE.Models
+@using PagedList.Mvc
+@model PagedList.PagedList<SACH>
 @{
     ViewBag.Title = "TRANG CHỦ";
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -12,7 +14,6 @@
         .imgbook:hover {
             transform: scale(0.9);
             cursor: pointer;
-
         }
 </style>
 <h2 class="text-center">SÁCH MỚI</h2>
@@ -39,23 +40,24 @@
         </div>
     }
 </div>
+<hr />
 <nav class="text-center">
     <!-- Add class .pagination-lg for larger blocks or .pagination-sm for smaller blocks-->
-    <ul class="pagination">
-        <li>
-            <a href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
-        </li>
-        <li class="active"><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li class="disabled"><a href="#">5</a></li>
-        <li>
-            <a href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-            </a>
-        </li>
-    </ul>
+    @*Tạo liên kết các trang*@
+    Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
+    <div class="MenuTrang">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new
+        {
+            iMaCD =
+        ViewBag.MaCD,
+            page = page
+        }))
+    </div>
+    <style>
+        .MenuTrang {
+            display: inline;
+            text-align: center;
+        }
+    </style>
+
 </nav>

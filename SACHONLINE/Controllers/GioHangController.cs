@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Razor.Parser.SyntaxTree;
+using System.Web.UI.WebControls;
 using SACHONLINE.Models;
 namespace SACHONLINE.Controllers
 {
@@ -106,7 +108,7 @@ namespace SACHONLINE.Controllers
         {
             if (Session["TaiKhoan"] == null|| Session["TaiKhoan"].ToString() == "")
             {
-                return RedirectToAction("DangNhap", "User");
+                return Redirect(@Url.Action("DangNhap", "User", new { url = Request.Url.AbsolutePath.ToString() }));
             }
             if (Session["GioHang"] == null)
             {

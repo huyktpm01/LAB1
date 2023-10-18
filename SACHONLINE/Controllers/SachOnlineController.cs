@@ -18,16 +18,18 @@ namespace SachOnline.Controllers
         /// </summary>
         /// <param name="count">int</param>
         /// <returns>List</returns>
-        private List<SACH> LaySachMoi(int count)
+        private List<SACH> LaySachMoi(int c)
         {
-            return data.SACHes.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
+            return data.SACHes.OrderByDescending(a => a.NgayCapNhat).Take(c).ToList();
         }
         // GET: SachOnline
-        public ActionResult Index()
+        public ActionResult Index(int ? page)
         {
-            //Lay 6 quyen sach moi
-            var listSachMoi = LaySachMoi(6);
-            return View(listSachMoi);
+            int iSize = 6;
+            int iPageNum = (page ?? 1);
+            var sach = data.SACHes.OrderByDescending(a => a.NgayCapNhat).ToList();
+            return View(sach.ToPagedList(iPageNum, iSize));
+       
         }
         public ActionResult ChiTietSach(int id)
 
@@ -53,11 +55,14 @@ namespace SachOnline.Controllers
             var listChuDe = from cd in data.CHUDEs select cd;
             return PartialView(listChuDe);
         }
-        public ActionResult SachTheoNhaXuatBan(int id)
+        public ActionResult SachTheoNhaXuatBan(int id, int? page)
         {
-
-            var NXB = from s in data.SACHes where s.MaNXB == id select s;
-            return View(NXB);
+            ViewBag.MaCD = id;
+            int iSize = 3;
+            int iPageNum = (page ?? 1);
+            var sach = from s in data.SACHes where s.MaCD == id select s;
+            return View(sach.ToPagedList(iPageNum, iSize));
+ 
         }
         public ActionResult NXBPartial()
         {
@@ -69,10 +74,10 @@ namespace SachOnline.Controllers
             var listSachMoi = LaySachMoi(6);
             return PartialView(listSachMoi);
         }
-        [HttpGet]
-        public ActionResult DangKy()
+       
+        public ActionResult LoginLogout()
         {
-            return View();
+            return PartialView("LoginLogout");
         }
     }
 }

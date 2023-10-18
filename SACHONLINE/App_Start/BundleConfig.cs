@@ -25,6 +25,8 @@ namespace SACHONLINE
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/Admin/css").Include("~/Content/structure.css",
+            "~/Content/reset.css"));
         }
     }
 }

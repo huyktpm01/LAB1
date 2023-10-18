@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Web;
 using System.Web.Mvc;
 
@@ -85,8 +86,9 @@ namespace SACHONLINE.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult DangNhap(FormCollection collection)
+        public ActionResult DangNhap(String url,FormCollection collection)
         {
+            
             var sTenDN = collection["TenDN"];
             var sMatKhau = collection["Matkhau"];
             if (String.IsNullOrEmpty(sTenDN))
@@ -104,6 +106,7 @@ namespace SACHONLINE.Controllers
                 {
                     ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
                     Session["TaiKhoan"] = kh;
+                    return Redirect(url);
                 }
                 else
                 {

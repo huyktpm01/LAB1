@@ -135,6 +135,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\SachOnlineController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -167,6 +170,8 @@
     <Content Include="Content\bootstrap.rtl.css" />
     <Content Include="Content\bootstrap.rtl.min.css" />
     <Content Include="Content\PagedList.css" />
+    <Content Include="Content\reset.css" />
+    <Content Include="Content\structure.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -222,6 +227,11 @@
       <LastGenOutput>dbSachOnline.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <None Include="Models\dbSachOnline.dbml.layout">
       <DependentUpon>dbSachOnline.dbml</DependentUpon>
     </None>
@@ -263,9 +273,11 @@
     <Content Include="Views\GioHang\GioHangPartial.cshtml" />
     <Content Include="Views\GioHang\DatHang.cshtml" />
     <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\SachOnline\LoginLogout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.rtl.min.css.map" />
