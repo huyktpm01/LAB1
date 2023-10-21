@@ -1,0 +1,50 @@
+﻿@*Khai báo để sử dụng chức năng phân trang*@
+@using SACHONLINE.Models
+@using PagedList.Mvc;
+@model PagedList.PagedList<SACHONLINE.Models.CHUDE>
+@*Xây dựn một helper tùy chỉnh để cắt độ dài chuỗi*@
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>QUẢN LÝ THÔNG TIN CHỦ ĐỀ</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.First().TenChuDe)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenChuDe)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaCD }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaCD }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaCD })
+            </td>
+        </tr>
+    }
+
+</table>
+Trang @(Model.PageCount < Model.PageNumber ? 0 :
+Model.PageNumber)/@Model.PageCount
+<div class="MenuTrang">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+<style>
+    .MenuTrang {
+        display: inline;
+        text-align: center;
+    }
+</style>

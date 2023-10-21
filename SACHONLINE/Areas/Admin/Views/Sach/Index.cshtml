@@ -13,7 +13,7 @@
     {
         @s.Substring(0, length)
        
-}
+    }
 }
 @{
     ViewBag.Title = "Index";
@@ -60,7 +60,7 @@
             </td>
             <td>
                 @*Sử dụng helper để cắt MoTa lấy 70 ký tự*@
-                @Html.Raw(Truncate(item.MoTa,70))
+                @Html.Raw(@item.MoTa)
             </td>
             <td>
                 <img src="~/Images/@item.AnhBia" style="width:50px;" />

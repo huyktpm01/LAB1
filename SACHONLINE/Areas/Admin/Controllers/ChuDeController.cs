@@ -10,7 +10,7 @@ using System.IO;
 
 namespace SACHONLINE.Areas.Admin.Controllers
 {
-    public class SachController : Controller
+    public class ChuDeController : Controller
     {
        // dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP010502\\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True");
         dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP-4PHTMN7E;Initial Catalog=SachOnline;Integrated Security=True");
@@ -19,7 +19,7 @@ namespace SACHONLINE.Areas.Admin.Controllers
         {
             int iPageNum = (page ?? 1);
             int iPageSize = 7;
-            return View(db.SACHes.ToList().OrderBy(n => n.MaSach).ToPagedList(iPageNum, iPageSize));
+            return View(db.CHUDEs.ToList().OrderBy(n => n.MaCD).ToPagedList(iPageNum, iPageSize));
         }
         [HttpGet]
         public ActionResult Create()
@@ -30,45 +30,18 @@ namespace SACHONLINE.Areas.Admin.Controllers
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(SACH sach, FormCollection f, HttpPostedFileBase fFileUpload)
+        public ActionResult Create(CHUDE chude, FormCollection f, HttpPostedFileBase fFileUpload)
         {
             ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
             ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
 
-            if (fFileUpload == null)
-            {
-                ViewBag.ThongBao = "Hãy chọn ảnh bìa.";
-                ViewBag.TenSach = f["sTenSach"];
-                ViewBag.MoTa = f["sMoTa"];
-                ViewBag.SoLuong = int.Parse(f["iSoLuong"]);
-                ViewBag.GiaBan = decimal.Parse(f["mGiaBan"]);
-                ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", int.Parse(f["MaCD"]));
-                ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", int.Parse(f["MaNXB"]));
-                return View();
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    var sFileName = Path.GetFileName(fFileUpload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/Images"), sFileName);
-                    if (!System.IO.File.Exists(path))
-                    {
-                        fFileUpload.SaveAs(path);
-                    }
-                    sach.TenSach = f["sTenSach"];
-                    sach.MoTa = f["sMoTa"];
-                    sach.AnhBia = sFileName;
-                    sach.NgayCapNhat = Convert.ToDateTime(f["dNgayCapNhat"]);
-                    sach.SoLuongBan = int.Parse(f["iSoLuong"]);
-                    sach.GiaBan = decimal.Parse(f["mGiaBan"]);
-                    sach.MaCD = int.Parse(f["MaCD"]);
-                    sach.MaNXB = int.Parse(f["MaNXB"]);
-                    db.SACHes.InsertOnSubmit(sach);
+            
+            
+                    chude.TenChuDe = f["sTenChuDe"];
+                    chude.MaCD = int.Parse(f["nMaCD"]);
+                    db.CHUDEs.InsertOnSubmit(chude);
                     db.SubmitChanges();
                     return RedirectToAction("Index");
-                }
-                return View();
             }
         }
         public ActionResult Details(int id)
