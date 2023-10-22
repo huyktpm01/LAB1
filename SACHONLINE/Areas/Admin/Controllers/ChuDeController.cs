@@ -24,70 +24,63 @@ namespace SACHONLINE.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
+            
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(CHUDE chude, FormCollection f, HttpPostedFileBase fFileUpload)
+        public ActionResult Create(CHUDE chude, FormCollection f)
         {
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe");
-            ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB");
-
-            
-            
                     chude.TenChuDe = f["sTenChuDe"];
-                    chude.MaCD = int.Parse(f["nMaCD"]);
                     db.CHUDEs.InsertOnSubmit(chude);
                     db.SubmitChanges();
                     return RedirectToAction("Index");
-            }
+            
         }
         public ActionResult Details(int id)
         {
-            var sach = db.SACHes.SingleOrDefault(n => n.MaSach == id);
-            if (sach == null)
+            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
+            if (chude == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(sach);
+            return View(chude);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var sach = db.SACHes.SingleOrDefault(n => n.MaSach == id);
-            if (sach == null)
+            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
+            if (chude == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(sach);
+            return View(chude);
         }
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirm(int id, FormCollection f)
         {
-            var sach = db.SACHes.SingleOrDefault(n => n.MaSach == id);
+            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
 
-            if (sach == null)
+            if (chude == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            var ctdh = db.CHITIETDATHANGs.Where(ct => ct.MaDonHang == id);
+            var ctdh = db.CHUDEs.Where(ct => ct.MaCD == id);
             if (ctdh.Count() > 0)
             {
-                ViewBag.ThongBao = "Sách này đang có trong bảng Chi tiết đặt hàng <br>" + " Nếu muốn xóa thì phải xóa hết mã sách này trong bảng Chi tiết đặt hàng";
-                return View(sach);
+                ViewBag.ThongBao = "chủ đề này đang có sách  <br>" + " Nếu muốn xóa thì phải xóa hết mã sách này trong bảng sách";
+                return View(chude);
             }
-            var vietsach = db.VIETSACHes.Where(vs => vs.MaSach == id).ToList();
-            if (vietsach != null)
+            var sach = db.SACHes.Where(s => s.MaCD == id);
+            if (sach != null)
             {
-                db.VIETSACHes.DeleteAllOnSubmit(vietsach);
+                db.SACHes.DeleteAllOnSubmit(sach);
                 db.SubmitChanges();
             }
-            db.SACHes.DeleteOnSubmit(sach);
+            db.CHUDEs.DeleteOnSubmit(chude);
             db.SubmitChanges();
 
             return RedirectToAction("Index");
@@ -95,49 +88,27 @@ namespace SACHONLINE.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var sach = db.SACHes.SingleOrDefault(n => n.MaSach == id);
-            if (sach == null)
+            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
+            if (chude == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", sach.MaCD);
-            ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", sach.MaNXB);
-
-            return View(sach);
+            return View(chude);
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(FormCollection f, HttpPostedFileBase fFileUpload)
+        public ActionResult Edit(FormCollection f)
         {
-            var sach = db.SACHes.SingleOrDefault(n => n.MaSach == int.Parse(f["iMaSach"]));
-            ViewBag.MaCD = new SelectList(db.CHUDEs.ToList().OrderBy(n => n.TenChuDe), "MaCD", "TenChuDe", sach.MaCD);
-            ViewBag.MaNXB = new SelectList(db.NHAXUATBANs.ToList().OrderBy(n => n.TenNXB), "MaNXB", "TenNXB", sach.MaNXB);
+            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == int.Parse(f["iMaCD"]));
         
             if(ModelState.IsValid)
             {
-                if (fFileUpload != null)
-                {
-                    var sFileName = Path.GetFileName(fFileUpload.FileName);
-                    var path = Path.Combine(Server.MapPath("~/MapPath"), sFileName);
-                    if (!System.IO.File.Exists(path))
-                    {
-                        fFileUpload.SaveAs(path);
-                    }
-                    sach.AnhBia = sFileName;
-                }
-                sach.TenSach = f["sTenSach"];
-                sach.MoTa = f["sMoTa"];
-
-                sach.NgayCapNhat = Convert.ToDateTime(f["dNgayCapNhat"]);
-                sach.SoLuongBan = int.Parse(f["iSoLuong"]);
-                sach.GiaBan = decimal.Parse(f["mGiaBan"]);
-                sach.MaCD = int.Parse(f["MaCD"]);
-                sach.MaNXB = int.Parse(f["MaNXB"]);
+                chude.TenChuDe = f["sTenChuDe"];
                 db.SubmitChanges();
                 return RedirectToAction("Index");
             }
-            return View(sach);
+            return View(chude);
         }
     }
 }
