@@ -1,0 +1,41 @@
+﻿@model SACHONLINE.Models.NHAXUATBAN
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>THÊM NHÀ XUẤT BẢN</h2>
+@*Thêm thuộc tính cho form để upload ảnh*@
+@Html.AntiForgeryToken()
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Tên Nhà Xuất Bản:</label>
+        <div class="col-md-10">
+            <input type="text" size="70" name="sNhaXuatBan" value="@ViewBag.NhaXuatBan"
+                   required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Địa chỉ:</label>
+        <div class="col-md-10">
+            <input type="text" size="70" name="sDiaChi" value="@ViewBag.NhaXuatBan"
+                   required />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-md-2">Số Diện Thoại:</label>
+        <div class="col-md-10">
+            <input type="text" size="70" name="sDienThoai" value="@ViewBag.NhaXuatBan"
+                   required />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Thêm mới" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+<div>
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ NHÀ XUẤT BẢN", "Index")
+</div>

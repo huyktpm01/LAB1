@@ -1,0 +1,52 @@
+﻿@model SACHONLINE.Models.DONDATHANG
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<style type="text/css">
+    img {
+        width: 200px;
+        margin-bottom: 20px;
+    }
+</style>
+<h2 style="text-align:center">CHI TIẾT ĐƠN ĐẶT HÀNG</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Đã Thanh Toán:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.DaThanhToan)
+        </dd>
+        <dt>
+            Tình Trạng Giao Hàng:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TinhTrangGiaoHang)
+        </dd>
+        <dt>
+            Ngày Đặt:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayDat)
+        </dd>
+        <dt>
+            Ngày Giao:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NgayGiao)
+        </dd>
+        <dt>
+            Mã Khách Hàng:
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaKH)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.MaDonHang })
+    @Html.ActionLink("VỀ TRANG QUẢN LÝ ĐƠN ĐẶT HÀNG", "Index")
+</p>

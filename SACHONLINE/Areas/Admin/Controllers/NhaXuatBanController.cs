@@ -10,77 +10,79 @@ using System.IO;
 
 namespace SACHONLINE.Areas.Admin.Controllers
 {
-    public class ChuDeController : Controller
+    public class NhaXuatBanController : Controller
     {
         dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP010502\\SQLEXPRESS;Initial Catalog=SachOnline;Integrated Security=True");
         //dbSachOnlineDataContext db = new dbSachOnlineDataContext("Data Source=LAPTOP-4PHTMN7E;Initial Catalog=SachOnline;Integrated Security=True");
-        // GET: Admin/Sach
+        // GET: Admin/NhaXuatBAN
         public ActionResult Index(int? page)
         {
             int iPageNum = (page ?? 1);
             int iPageSize = 7;
-            return View(db.CHUDEs.ToList().OrderBy(n => n.MaCD).ToPagedList(iPageNum, iPageSize));
+            return View(db.NHAXUATBANs.ToList().OrderBy(n => n.MaNXB).ToPagedList(iPageNum, iPageSize));
         }
         [HttpGet]
         public ActionResult Create()
         {
-            
+
             return View();
         }
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create(CHUDE chude, FormCollection f)
+        public ActionResult Create(NHAXUATBAN nhaxuatban, FormCollection f)
         {
-                    chude.TenChuDe = f["sTenChuDe"];
-                    db.CHUDEs.InsertOnSubmit(chude);
-                    db.SubmitChanges();
-                    return RedirectToAction("Index");
-            
+            nhaxuatban.TenNXB = f["sNhaXuatBan"];
+            nhaxuatban.DiaChi = f["sDiaChi"];
+            nhaxuatban.DienThoai = f["sDienThoai"];
+            db.NHAXUATBANs.InsertOnSubmit(nhaxuatban);
+            db.SubmitChanges();
+            return RedirectToAction("Index");
+
         }
         public ActionResult Details(int id)
         {
-            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
-            if (chude == null)
+            var nhaxuatban = db.NHAXUATBANs.SingleOrDefault(n => n.MaNXB == id);
+            if (nhaxuatban == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(chude);
+            return View(nhaxuatban);
         }
         [HttpGet]
         public ActionResult Delete(int id)
         {
-            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
-            if (chude == null)
+            var nhaxuatban = db.NHAXUATBANs.SingleOrDefault(n => n.MaNXB == id);
+            if (nhaxuatban == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(chude);
+            return View(nhaxuatban);
         }
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirm(int id, FormCollection f)
         {
-            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
+            var nhaxuatban = db.NHAXUATBANs.SingleOrDefault(n => n.MaNXB == id);
 
-            if (chude == null)
+            if (nhaxuatban == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            var ctdh = db.CHUDEs.Where(ct => ct.MaCD == id);
+            var ctdh = db.NHAXUATBANs.Where(ct => ct.MaNXB == id);
             if (ctdh.Count() > 0)
             {
-                ViewBag.ThongBao = "chủ đề này đang có sách  <br>" + " Nếu muốn xóa thì phải xóa hết mã sách này trong bảng sách";
-                return View(chude);
+                ViewBag.ThongBao = "Nhà xuất bản đã xuất bản sách  <br>" + " Nếu muốn xóa thì phải xóa hết mã sách của nhà xuất bản này";
+                return View(nhaxuatban);
             }
-            var sach = db.SACHes.Where(s => s.MaCD == id);
+            var sach = db.SACHes.Where(s => s.MaNXB == id);
             if (sach != null)
             {
                 db.SACHes.DeleteAllOnSubmit(sach);
                 db.SubmitChanges();
             }
-            db.CHUDEs.DeleteOnSubmit(chude);
+            db.NHAXUATBANs.DeleteOnSubmit(nhaxuatban);
             db.SubmitChanges();
 
             return RedirectToAction("Index");
@@ -88,27 +90,29 @@ namespace SACHONLINE.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Edit(int id)
         {
-            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == id);
-            if (chude == null)
+            var nhaxuatban = db.NHAXUATBANs.SingleOrDefault(n => n.MaNXB == id);
+            if (nhaxuatban == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            return View(chude);
+            return View(nhaxuatban);
         }
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult Edit(FormCollection f)
         {
-            var chude = db.CHUDEs.SingleOrDefault(n => n.MaCD == int.Parse(f["iMaCD"]));
-        
-            if(ModelState.IsValid)
+            var nhaxuatban = db.NHAXUATBANs.SingleOrDefault(n => n.MaNXB == int.Parse(f["iMaNXB"]));
+
+            if (ModelState.IsValid)
             {
-                chude.TenChuDe = f["sTenChuDe"];
+                nhaxuatban.TenNXB = f["sTenNhaXuatBan"];
+                nhaxuatban.DiaChi = f["sDiaChi"];
+                nhaxuatban.DienThoai = f["sSoDienThoai"];
                 db.SubmitChanges();
                 return RedirectToAction("Index");
             }
-            return View(chude);
+            return View(nhaxuatban);
         }
     }
 }
